@@ -1,0 +1,36 @@
+{
+"name":"file-scheme-get-from-script",
+"fullName":"File URI Scheme GET from Page Script",
+
+"title": "File URI Scheme GET from Page Script",
+"id": "jid0-m03zqB9pPBB1nZal9bhWylahBog@jetpack",
+"description": "Provide an API to GET file:// URI scheme files from a page script, as allowed by regular expressions in Preferences.",
+"author": "srguiwiz",
+"license": "BSD",
+"version": "1.0.0",
+
+"main": "main",
+
+"preferences":[{
+    "name":"onlyIfDocumentURIMatchesRegEx",
+    "title":"Only If page document URI After file:// Matches Regular Expression",
+    "description":
+      "Only if page document URI after file:// matches this regular expression. Default is ~/.*\\.svg. Must start with / or ~. Note: Will not get around file URI scheme limitation. Change here applies to documents opened after change only.",
+    "type":"string",
+    "value":"~/.*\\\\.svg"
+  },{
+    "name":"onlyIfFileURIMatchesRegEx",
+    "title":"Only If File URI Matches Regular Expression",
+    "description":
+      "Only if whole absolute file URI to GET from after file:// matches this regular expression. Default is ~/.*\\.svg. Must start with / or ~. Note: Will not get around file URI scheme limitation. Change here applies to documents opened after change only.",
+    "type":"string",
+    "value":"~/.*\\\\.svg"
+  },{
+    "name":"showActionButton",
+    "title":"Show Icon",
+    "description":"Whether to show the icon in the Add-on Bar. Informative only, no action on click.",
+    "type":"bool",
+    "value":true
+  }]
+}
+

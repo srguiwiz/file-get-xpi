@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Nrvr GET Text File Demo</title>
+</head>
+
+<body style="background:lightgrey;">
+<p>A demo. To be explained better.</p>
+
+<p>After trying online, store this page on (save to) your local file system
+(disk) and open from there to try out.</p>
+
+<p>Click these two buttons to load <button
+onclick="loadTextIntoDisplay('../dir-b/file-get-ex-002-text-1.txt');">File
+1</button> alternatingly with <button
+onclick="loadTextIntoDisplay('../dir-b/file-get-ex-002-text-2.txt');">File
+2</button>.</p>
+
+<p>You should see those files' text content in below white
+<code>&lt;div</code>.</p>
+
+<div id="responseTextDisplay"
+style="background:white;padding:5px 10px;border-style:solid;border-color:darkgrey;">
+loaded text should go here</div>
+
+<p>Note how from the local files system (disk) it doesn't work if the browser
+extension isn't present.</p>
+
+<p>With the browser extension present be aware of regular expressions in add-on
+preferences. Default may not match <code>.html</code> and <code>.txt</code> .
+You could change the regular expressions in add-on preferences to
+<code>~/.*</code> .</p>
+</body>
+<script type="text/javascript">
+if (!window.nrvrGetTextFile) {
+  console.log("page script installs its own window.nrvrGetTextFile");
+  window.nrvrGetTextFile = function nrvrGetTextFile (fileUrl, gotFileCallback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onloadend = function () {
+      gotFileCallback(xhr.responseText, xhr.status);
+    };
+    try {
+      xhr.open('GET', fileUrl, true);
+      xhr.responseType = 'text';
+      xhr.send();
+    } catch (e) {
+      console.error('error attempting to GET', fileUrl.href, e);
+      gotFileCallback('', 0);
+    }
+  }
+}
+
+function loadTextIntoDisplay(fileUrl) {
+  window.nrvrGetTextFile(fileUrl, function(responseText, status) {
+    document.getElementById('responseTextDisplay').textContent = responseText ? responseText : status;
+  });
+}</script>
+</html>

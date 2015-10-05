@@ -7,7 +7,7 @@
 "description": "Provide an API to GET file:// URI scheme files from a page script, as allowed by regular expressions in Preferences.",
 "author": "srguiwiz",
 "license": "BSD",
-"version": "1.0.0",
+"version": "1.0.1",
 
 "main": "main",
 

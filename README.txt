@@ -10,17 +10,19 @@ when this add-on isn't present:
 
 if (!window.nrvrGetTextFile) {
   window.nrvrGetTextFile = function nrvrGetTextFile (fileUrl, gotFileCallback) {
-    var xhr = new XMLHttpRequest();
-    xhr.onloadend = function () {
-      gotFileCallback(xhr.responseText, xhr.status);
-    };
     try {
+      var xhr = new XMLHttpRequest();
+      xhr.onloadend = function () {
+        gotFileCallback(xhr.responseText, xhr.status);
+      };
       xhr.open('GET', fileUrl, true);
       xhr.responseType = 'text';
       xhr.send();
     } catch (e) {
       console.error('error attempting to GET', fileUrl.href, e);
-      gotFileCallback('', 0);
+      window.setTimeout(function () {
+        gotFileCallback('', 0);
+      }, 0);
     }
   }
 }

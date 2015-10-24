@@ -32,7 +32,8 @@ if (!window.nrvrGetTextFile) {
 Designed specifically for use with https://github.com/srguiwiz/adj-js
 command include http://srguiwiz.github.io/adj-js/user-docs/#L3450
 
-Built version ready to install will be linked here once available.
+Built version ready to install from
+https://addons.mozilla.org/en-US/firefox/addon/file-scheme-get-from-script/
 
 Build with a local https://developer.mozilla.org/en-US/Add-ons/SDK/Builder
 

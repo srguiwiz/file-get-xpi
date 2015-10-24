@@ -13,7 +13,9 @@ if (!window.nrvrGetTextFile) {
     try {
       var xhr = new XMLHttpRequest();
       xhr.onloadend = function () {
-        gotFileCallback(xhr.responseText, xhr.status);
+        window.setTimeout(function () {
+          gotFileCallback(xhr.responseText, xhr.status);
+        }, 0);
       };
       xhr.open('GET', fileUrl, true);
       xhr.responseType = 'text';
@@ -28,6 +30,7 @@ if (!window.nrvrGetTextFile) {
 }
 
 Designed specifically for use with https://github.com/srguiwiz/adj-js
+command include http://srguiwiz.github.io/adj-js/user-docs/#L3450
 
 Built version ready to install will be linked here once available.
 

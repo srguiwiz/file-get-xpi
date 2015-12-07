@@ -7,7 +7,7 @@
 "description": "Provide an API to GET file:// URI scheme files from a page script, as allowed by regular expressions in Preferences.",
 "author": "srguiwiz",
 "license": "BSD",
-"version": "1.0.2",
+"version": "1.0.3",
 
 "main": "main",
 
@@ -15,9 +15,9 @@
     "name":"onlyIfDocumentURIMatchesRegEx",
     "title":"Only If page document URI After file:// Matches Regular Expression",
     "description":
-      "Only if page document URI after file:// matches this regular expression. Default is ~/.*\\.svg. Must start with / or ~. Note: Will not get around file URI scheme limitation. Change here applies to documents opened after change only.",
+      "Only if page document URI after file:// matches this regular expression. Default is ~/.*\\.(svg|html). Must start with / or ~. Note: Will not get around file URI scheme limitation. Change here applies to documents opened after change only.",
     "type":"string",
-    "value":"~/.*\\\\.svg"
+    "value":"~/.*\\\\.(svg|html)"
   },{
     "name":"onlyIfFileURIMatchesRegEx",
     "title":"Only If File URI Matches Regular Expression",
